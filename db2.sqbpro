@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/home/gg/IdeaProjects/SocialNetvork1/db2" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><current_tab id="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1496"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="user_group"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="groupa" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk=""><sort/><column_widths/><filter_values/><display_formats/><hidden_columns/><plot_y_axes/></table><table schema="main" name="message" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk=""><sort/><column_widths/><filter_values/><display_formats/><hidden_columns/><plot_y_axes/></table><table schema="main" name="user" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk=""><sort/><column_widths/><filter_values/><display_formats/><hidden_columns/><plot_y_axes/></table><table schema="main" name="user_group" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk=""><sort/><column_widths/><filter_values/><display_formats/><hidden_columns/><plot_y_axes/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">create TABLE user(
+id integer PRIMARY KEY AUTOINCREMENT,
+fio TEXT not null,
+age double,
+unique(fio, age)
+);
+
+create TABLE message(
+id integer PRIMARY KEY AUTOINCREMENT,
+text TEXT not null,
+date date not null,
+id_user INTEGER REFERENCES user(id),
+unique(text, date)
+);
+
+create TABLE groupa(
+id integer PRIMARY KEY AUTOINCREMENT,
+name text not null
+);
+
+create TABLE user_group(
+id integer PRIMARY KEY AUTOINCREMENT,
+id_user integer REFERENCES user(id),
+id_groupa integer REFERENCES groupa(id)
+);
+
+INSERT into user(fio, age) VALUES('ivanov', 30);
+INSERT into user(fio, age) VALUES('sidorov', 44);
+INSERT into user(fio, age) VALUES('kotov', 18);
+INSERT into user(fio, age) VALUES('petrov', 50);
+
+insert into message(text, date, id_user) VALUES ('hello', 2019-07-12,3); 
+insert into message(text, date, id_user) VALUES ('hi', 2019-07-12,2); 
+insert into message(text, date, id_user) VALUES ('how are you', 2019-07-12,3); 
+insert into message(text, date, id_user) VALUES ('i am ok', 2019-07-12,2);
+
+INSERT into groupa(name) values ('hunters');
+INSERT into groupa(name) values ('fishman');
+
+INSERT into user_group(id_user, id_groupa) values(3, 1);
+INSERT into user_group(id_user, id_groupa) values(3, 2);
+INSERT into user_group(id_user, id_groupa) values(4, 1);
+INSERT into user_group(id_user, id_groupa) values(2, 1);</sql><sql name="SQL 1">create TABLE user(
+id integer PRIMARY KEY AUTOINCREMENT,
+fio TEXT not null,
+age double,
+unique(fio, age)
+);
+
+create TABLE message(
+id integer PRIMARY KEY AUTOINCREMENT,
+text TEXT not null,
+date date not null,
+id_user INTEGER REFERENCES user(id),
+unique(text, date)
+);
+
+create TABLE groupa(
+id integer PRIMARY KEY AUTOINCREMENT,
+name text not null
+);
+
+create TABLE user_group(
+id integer PRIMARY KEY AUTOINCREMENT,
+id_user integer REFERENCES user(id),
+id_groupa integer REFERENCES groupa(id)
+);
+
+INSERT into user(fio, age) VALUES('ivanov', 30);
+INSERT into user(fio, age) VALUES('sidorov', 44);
+INSERT into user(fio, age) VALUES('kotov', 18);
+INSERT into user(fio, age) VALUES('petrov', 50);
+
+insert into message(text, date, id_user) VALUES ('hello', 2019-07-12,3); 
+insert into message(text, date, id_user) VALUES ('hi', 2019-07-12,2); 
+insert into message(text, date, id_user) VALUES ('how are you', 2019-07-12,3); 
+insert into message(text, date, id_user) VALUES ('i am ok', 2019-07-12,2);
+
+INSERT into groupa(name) values ('hunters');
+INSERT into groupa(name) values ('fishman');
+
+INSERT into user_group(id_user, id_groupa) values(3, 1);
+INSERT into user_group(id_user, id_groupa) values(3, 2);
+INSERT into user_group(id_user, id_groupa) values(4, 1);
+INSERT into user_group(id_user, id_groupa) values(2, 1);</sql><current_tab id="1"/></tab_sql></sqlb_project>
